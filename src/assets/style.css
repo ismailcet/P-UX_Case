@@ -24,3 +24,48 @@ body {
   background-color: rgba(238, 226, 244, 0.2);
   border-radius: 0.5rem;
 }
+.active {
+  background-color: rgba(238, 226, 244, 0.2);
+  border-radius: 0.5rem;
+}
+
+/* Task | Header Section */
+.header_section {
+  background: linear-gradient(269.59deg, #5252e4 6.11%, #004e92 95.35%);
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 24px;
+}
+.header_input {
+  /* light/B&W/white */
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  box-shadow: 0px 1px 0px #000000;
+  border-radius: 8px;
+  color: #999999;
+}
+.input-button {
+  color: #212121;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+/* Task | Content Section */
+.select_buttons {
+  border: 1px solid #f2f4f7;
+  border-radius: 8px;
+}
+.btn-select {
+  transition: all 0.3s linear;
+}
+.btn-select-one {
+  box-shadow: 0px 2px 6px rgba(146, 146, 157, 0.07);
+  color: #724cf9;
+}

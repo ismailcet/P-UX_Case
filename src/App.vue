@@ -2,7 +2,7 @@
   <HomePage/>
 </template>
 <script>
-import HomePage from "@/components/HomePage.vue"
+import HomePage from "@/views/HomePage.vue"
 export default {
   components:{
     HomePage
