@@ -111,6 +111,7 @@ progress::-moz-progress-bar {
 }
 .modal {
   overflow: scroll;
+  overflow-y: hidden;
   position: fixed;
   top: 400px;
   left: 50%;
@@ -145,4 +146,25 @@ progress::-moz-progress-bar {
 .detail_header {
   background: linear-gradient(90deg, #4776e6 0%, #8e54e9 100%);
   box-shadow: 0px 4px 10px rgba(78, 78, 78, 0.15);
+}
+.devam {
+  color: #f79009;
+}
+.todo {
+  color: #4224f5;
+}
+.pass {
+  color: #f04438;
+}
+.did {
+  color: #12b76a;
+}
+.acil {
+  background-color: #f79009;
+}
+.normal {
+  background-color: #12b76a;
+}
+.cokacil {
+  background-color: #f04438;
 }

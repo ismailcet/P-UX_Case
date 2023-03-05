@@ -1,8 +1,8 @@
 <template>
-    <section class="task_detail w-full bg-white rounded-t-3xl rounded-r-3xl overflow-y-scroll">
+    <section class="task_detail w-full bg-white rounded-t-3xl rounded-r-3xl overflow-x-hidden">
         <div class="detail_header h-[6rem] flex justify-around py-2 px-20 text-white rounded-t-2xl rounded-r-2x">
             <div class="detail_titles">
-                <p class="text-sm font-normal">Koç - UI/UX Maintenance</p>
+                <p class="text-sm font-normal">{{this.selectedTask.value.title}}</p>
                 <h3 class="title text-4xl font-semibold">UI Benchmark</h3>
                 <p class="font-normal text-sm">Yapılacaklar</p>
             </div>
@@ -43,37 +43,37 @@
                         </div>
                         <div class="details">
                             <ul class="details_content pt-6">
-                                <li class="border-[1px] border-[#BDBDBD] w-[298px] flex justify-between p-3 rounded-lg mb-[0.875rem]">
+                                <li class="border-[1px] border-[#BDBDBD] w-[298px] flex justify-between p-3 rounded-lg mb-[0.5rem]">
                                     <div class="detail_text">
-                                        <h3 class="text-base font-bold">Anasayfa - benchmark</h3>
-                                        <p class="text-xs font-normal">Koçtaş UI&UX Maintenance</p>
-                                        <p class="text-xs font-normal">UX&UI</p>
+                                        <h3 class="text-base font-bold">{{this.selectedTask.value.task}} - benchmark</h3>
+                                        <p class="text-xs font-normal">{{this.selectedTask.value.title}}</p>
+                                        <p class="text-xs font-normal">{{ this.selectedTask.value.category }}</p>
                                     </div>
                                     <span class="text-base">
                                         <i class="fa-solid fa-plus"></i>
                                     </span>  
                                 </li>
-                                <li class="border-[1px] border-[#BDBDBD] w-[298px] flex justify-between p-3 rounded-lg mb-[0.875rem]">
+                                <li class="border-[1px] border-[#BDBDBD] w-[298px] flex justify-between p-3 rounded-lg mb-[0.5rem]">
                                     <div class="detail_text">
                                         <h3 class="text-base font-bold">Search bar benchmark</h3>
-                                        <p class="text-xs font-normal">Koçtaş UI&UX Maintenance</p>
-                                        <p class="text-xs font-normal">UX&UI</p>
+                                        <p class="text-xs font-normal">{{this.selectedTask.value.title}}</p>
+                                        <p class="text-xs font-normal">{{ this.selectedTask.value.category }}</p>
                                     </div>
                                     <span><i class="fa-solid fa-plus"></i></span>
                                 </li>
-                                <li class="border-[1px] border-[#BDBDBD] w-[298px] flex justify-between p-3 rounded-lg mb-[0.875rem]">
+                                <li class="border-[1px] border-[#BDBDBD] w-[298px] flex justify-between p-3 rounded-lg mb-[0.5rem]">
                                     <div class="detail_text">
                                         <h3 class="text-base font-bold">Dashboard benchmark</h3>
-                                        <p class="text-xs font-normal">Koçtaş UI&UX Maintenance</p>
-                                        <p class="text-xs font-normal">UX&UI</p>
+                                        <p class="text-xs font-normal">{{this.selectedTask.value.title}}</p>
+                                        <p class="text-xs font-normal">{{ this.selectedTask.value.category }}</p>
                                     </div>
                                     <span><i class="fa-solid fa-plus"></i></span>
                                 </li>
                                 <li class="border-[1px] border-[#BDBDBD] w-[298px] flex justify-between p-3 rounded-lg ">
                                     <div class="detail_text">
                                         <h3 class="text-base font-bold">Dashboard benchmark</h3>
-                                        <p class="text-xs font-normal">Koçtaş UI&UX Maintenance</p>
-                                        <p class="text-xs font-normal">UX&UI</p>
+                                        <p class="text-xs font-normal">{{this.selectedTask.value.title}}</p>
+                                        <p class="text-xs font-normal">{{ this.selectedTask.value.category }}</p>
                                     </div>
                                     <span><i class="fa-solid fa-plus"></i></span>
                                 </li>
@@ -118,7 +118,7 @@
                     </div>
                     <div class="status_section mb-4">
                         <h3 class="status_title text-sm font-bold mb-4">Öncelik</h3>
-                        <button class="px-4 py-1 bg-[#F79009] text-white rounded-[40px] w-[5rem]">Acil</button>
+                        <button class=" py-1 text-white rounded-[40px] w-[5rem]" :class="`${this.selectedTask.value.value.color}`">{{this.selectedTask.value.value.value}}</button>
                     </div>
                     <div class="people_section">
                         <h3 class="people_title text-sm font-bold mb-4">Kişiler</h3>
@@ -170,16 +170,18 @@
                 </div>
             </div>
         </div>
+        <Footer  class="pr-[23rem]"/>
     </section>
 </template>
 <script>
 import "vue3-circle-progress/dist/circle-progress.css";
 import CircleProgress from "vue3-circle-progress";
+import Footer from "@/components/Footer.vue"
 export default {
     components:{
-        CircleProgress,
+        CircleProgress,Footer
     },
-    inject:["changeModal"],
-  
+    inject:["changeModal","selectedTask"],
+    
 }
 </script>

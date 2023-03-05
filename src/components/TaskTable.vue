@@ -27,13 +27,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr @click="showModal = true" v-for="task in taskList" :key="task.id" class="flex items-center text-xs border-[1px] border-[#BDBDBD] h-[102px] w-[96.5625rem] ml-[-1rem] pl-4 rounded-2xl gap-6 mb-6 cursor-pointer">
+                    <tr  v-for="task in taskList" :key="task.id" @click="changeModal(); selectTask(task);" class="flex items-center text-xs border-[1px] border-[#BDBDBD] h-[102px] w-[96.5625rem] ml-[-1rem] pl-4 rounded-2xl gap-6 mb-6 cursor-pointer">
                         <td>
                             <input type="checkbox" class="w-4 h-4">
                         </td>
                         <td class="flex flex-col items-start gap-1 mr-6 w-[9.5rem]">
                             <p>{{ task.title }}</p>
-                            <span :class="`text-[${task.status.color}]`">{{ task.status.status }}</span>
+                            <span :class="`${task.status.color}`">{{ task.status.status }}</span>
                         </td>
                         <td class="flex flex-row items-start gap-1text-sm font-bold pl-6 mr-6  w-[10rem]">
                             {{task.task}}
@@ -53,7 +53,7 @@
                             <span>23 Oca Perş.</span>
                         </td>
                         <td class="mr-6">
-                            <button :class="`bg-[${task.value.color}]`" class="py-1 text-sm font-normal text-white rounded-[2.5rem] w-[5rem]">{{ task.value.value }}</button>
+                            <button :class="`${task.value.color}`" class="py-1 text-sm font-normal text-white rounded-[2.5rem] w-[5rem]">{{ task.value.value }}</button>
                         </td>
                         <td class="mr-6">
                             <img :src="`${task.img}`" alt="Three-Avatars">
@@ -67,7 +67,6 @@
                         <td >
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </td>
-
                     </tr>
                 </tbody>
             </table>
@@ -83,6 +82,7 @@
 
 <script>
 import PopupTaskDetail from "@/components/PopupTaskDetail.vue"
+import { computed } from "@vue/reactivity";
 export default {
     components:{
         PopupTaskDetail,
@@ -95,13 +95,13 @@ export default {
                     title:"Koçtaş UI&UX Maintenance",
                     status:{
                         status:"Devam Ediyor",
-                        color:"#F79009"
+                        color:"devam"
                     },
                     task:"Anasayfada ara çözümler",
                     category:"UX&UI",
                     value:{
                         value:"Acil",
-                        color:"#F79009"
+                        color:"acil"
                     },
                     img:require("@/assets/Avatars.png"),
                     timeline:{
@@ -114,13 +114,13 @@ export default {
                     title:"Ford UI&UX Maintenance",
                     status:{
                         status:"Yapılacaklar",
-                        color:"#4224F5"
+                        color:"todo"
                     },
                     task:"Wireframe",
                     category:"UX&UI",
                     value:{
                         value:"Normal",
-                        color:"#12B76A"
+                        color:"normal"
                     },
                     img:require("@/assets/Avatar2.png"),
                     timeline:null,
@@ -130,13 +130,13 @@ export default {
                     title:"AI Proje/ AR-GE",
                     status:{
                         status:"Geç",
-                        color:"#F04438"
+                        color:"pass"
                     },
                     task:"Toplantı eforları",
                     category:"Toplantılar",
                     value:{
                         value:"Çok Acil",
-                        color:"#F04438"
+                        color:"cokacil"
                     },
                     img:require("@/assets/Avatar2.png"),
                     timeline:{
@@ -149,13 +149,13 @@ export default {
                     title:"Koçtaş UI&UX Maintenance",
                     status:{
                         status:"Devam Ediyor",
-                        color:"#F79009"
+                        color:"devam"
                     },
                     task:"Anasayfada ara çözümler",
                     category:"UX&UI",
                     value:{
                         value:"Acil",
-                        color:"#F79009"
+                        color:"acil"
                     },
                     img:require("@/assets/Avatars.png"),
                     timeline:{
@@ -168,13 +168,13 @@ export default {
                     title:"Ford UI&UX Maintenance",
                     status:{
                         status:"Yapılacaklar",
-                        color:"#4224F5"
+                        color:"todo"
                     },
                     task:"Wireframe",
                     category:"UX&UI",
                     value:{
                         value:"Normal",
-                        color:"#12B76A"
+                        color:"normal"
                     },
                     img:require("@/assets/Avatar2.png"),
                     timeline:null,
@@ -184,13 +184,13 @@ export default {
                     title:"Koçtaş UI&UX Maintenance",
                     status:{
                         status:"Devam Ediyor",
-                        color:"#F79009"
+                        color:"devam"
                     },
                     task:"Anasayfada ara çözümler",
                     category:"UX&UI",
                     value:{
                         value:"Acil",
-                        color:"#F79009"
+                        color:"acil"
                     },
                     img:require("@/assets/Avatars.png"),
                     timeline:{
@@ -203,13 +203,13 @@ export default {
                     title:"Ford UI&UX Maintenance",
                     status:{
                         status:"Yapılacaklar",
-                        color:"#4224F5"
+                        color:"todo"
                     },
                     task:"Wireframe",
                     category:"UX&UI",
                     value:{
                         value:"Normal",
-                        color:"#12B76A"
+                        color:"normal"
                     },
                     img:require("@/assets/Avatar2.png"),
                     timeline:null,
@@ -219,13 +219,13 @@ export default {
                     title:"Koçtaş UI&UX Maintenance",
                     status:{
                         status:"Devam Ediyor",
-                        color:"#F79009"
+                        color:"devam"
                     },
                     task:"Anasayfada ara çözümler",
                     category:"UX&UI",
                     value:{
                         value:"Acil",
-                        color:"#F79009"
+                        color:"acil"
                     },
                     img:require("@/assets/Avatars.png"),
                     timeline:{
@@ -238,13 +238,13 @@ export default {
                     title:"Ford UI&UX Maintenance",
                     status:{
                         status:"Yapılacaklar",
-                        color:"#4224F5"
+                        color:"todo"
                     },
                     task:"Wireframe",
                     category:"UX&UI",
                     value:{
                         value:"Normal",
-                        color:"#12B76A"
+                        color:"normal"
                     },
                     img:require("@/assets/Avatar2.png"),
                     timeline:null,
@@ -254,7 +254,7 @@ export default {
                     title:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, ",
                     status:{
                         status:"Tamamlandı",
-                        color:"#12B76A"
+                        color:"did"
                     },
                     task:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ",
                     category:"Lorem ipsum dolor sit ",
@@ -270,16 +270,21 @@ export default {
                 },
             ],
             showModal : false,
+            selectedTask:null,
         }
     },
     methods:{
         changeModal(){
             this.showModal = !this.showModal;
-        }
+       },
+       selectTask(task){
+        this.selectedTask = task;
+       }
     },
     provide(){
         return{
             changeModal : this.changeModal,
+            selectedTask : computed(() => this.selectedTask),
         }
     },
 }
